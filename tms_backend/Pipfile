@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+mysqlclient = "*"
+django-environ = "*"
+pipreqs = "*"
+psycopg2-binary = "*"
+python-dotenv = "*"
+channels = "*"
+channels-redis = "*"
+daphne = "*"
+django-cors-headers = "*"
+gunicorn = "*"
+dj-database-url = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

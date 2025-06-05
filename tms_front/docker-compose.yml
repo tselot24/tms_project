@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+
+  frontend:
+    #docker build -t tms_front:latest .
+    #docker stack deploy -c docker-compose.yml tms_front
+    image: tselot24/tms_front:${TAG:-latest}
+    #build: .
+    #container_name: tms_front
+    #build:
+    # context: .
+    # dockerfile: Dockerfile
+    ports:
+      - "3003:3000"
+    networks:
+      - tms_net
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+      labels:
+        swarm.autoscaler: "true" # Enable autoscaling
+        swarm.autoscaler.minimum: "1" # Minimum replicas
+        swarm.autoscaler.maximum: "5" # Maximum replicas
+
+networks:
+  tms_net:
+    external: true
