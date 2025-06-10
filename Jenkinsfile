@@ -120,7 +120,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REPO = 'tselot24/tms'
+        DOCKER_REPO = 'tms'
         BACKEND_IMAGE = "${DOCKER_REPO}:backend"
         FRONTEND_IMAGE = "${DOCKER_REPO}:frontend"
         DOCKER_CREDENTIALS_ID = 'tselot24_docker'
@@ -186,26 +186,26 @@ pipeline {
             }
         }
 
-        stage('Push Images') {
-            parallel {
-                stage('Push Backend') {
-                    // when {
-                    //     expression { return env.BACKEND_CHANGED == 'true' }
-                    // }
-                    steps {
-                        sh "docker push $BACKEND_IMAGE"
-                    }
-                }
-                stage('Push Frontend') {
-                    when {
-                        expression { return env.FRONTEND_CHANGED == 'true' }
-                    }
-                    steps {
-                        sh "docker push $FRONTEND_IMAGE"
-                    }
-                }
-            }
-        }
+        // stage('Push Images') {
+        //     parallel {
+        //         stage('Push Backend') {
+        //             // when {
+        //             //     expression { return env.BACKEND_CHANGED == 'true' }
+        //             // }
+        //             steps {
+        //                 sh "docker push $BACKEND_IMAGE"
+        //             }
+        //         }
+        //         stage('Push Frontend') {
+        //             when {
+        //                 expression { return env.FRONTEND_CHANGED == 'true' }
+        //             }
+        //             steps {
+        //                 sh "docker push $FRONTEND_IMAGE"
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Deploy') {
             // when {
