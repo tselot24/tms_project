@@ -5,7 +5,7 @@ services:
   frontend:
     #docker build -t tms_front:latest .
     #docker stack deploy -c docker-compose.yml tms_front
-    image: tselot24/tms_front:${TAG:-latest}
+    image: tselot24/tms_front1:${TAG:-latest}
     #build: .
     #container_name: tms_front
     #build:
