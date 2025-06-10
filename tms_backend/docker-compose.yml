@@ -4,7 +4,7 @@ services:
   web:
     #docker build -t tms_backend:latest .
     #docker stack deploy -c docker-compose.yml tms_backend
-    image: tselot24/tms_back:latest
+    image: tselot24/tms_back1:latest
     #build: .
     #container_name: tms_backend
     command: gunicorn tms_backend.wsgi:application --bind 0.0.0.0:8000
