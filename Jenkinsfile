@@ -19,7 +19,9 @@ pipeline {
             parallel {
                 stage('Backend') {
                     when {
-                        changeset "tms_backend/"
+                         expression {
+                            return hasChanges('tms_backend/')
+                        }
                     }
                     environment {
                         DOCKER_IMAGE = 'tselot24/tms_back1:latest'
@@ -52,7 +54,9 @@ pipeline {
 
                 stage('Frontend') {
                     when {
-                        changeset "tms_front/"
+                         expression {
+                            return hasChanges('tms_front/')
+                        }
                     }
                     environment {
                         DOCKER_IMAGE = 'tselot24/tms_front1:latest'
