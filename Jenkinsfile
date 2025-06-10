@@ -17,11 +17,11 @@ pipeline {
         stage('Build & Deploy') {
             parallel {
                 stage('Backend Build & Deploy') {
-                    when {
-                        expression {
-                            return checkForChanges('tms_backend/')
-                        }
-                    }
+                    // when {
+                    //     expression {
+                    //         return checkForChanges('tms_backend/')
+                    //     }
+                    // }
                     environment {
                         DOCKER_IMAGE = 'tselot24/tms_back:latest'
                     }
@@ -51,11 +51,11 @@ pipeline {
                 }
 
                 stage('Frontend Build & Deploy') {
-                    when {
-                        expression {
-                            return checkForChanges('tms_front/')
-                        }
-                    }
+                    // when {
+                    //     expression {
+                    //         return checkForChanges('tms_front/')
+                    //     }
+                    // }
                     environment {
                         DOCKER_IMAGE = 'tselot24/tms_front:latest'
                     }
