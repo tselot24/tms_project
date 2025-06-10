@@ -22,7 +22,7 @@ pipeline {
                         changeset "tms_backend/"
                     }
                     environment {
-                        DOCKER_IMAGE = 'tselot24/tms_back:latest'
+                        DOCKER_IMAGE = 'tselot24/tms_back1:latest'
                     }
                     steps {
                         dir('tms_backend') {
@@ -55,7 +55,7 @@ pipeline {
                         changeset "tms_front/"
                     }
                     environment {
-                        DOCKER_IMAGE = 'tselot24/tms_front:latest'
+                        DOCKER_IMAGE = 'tselot24/tms_front1:latest'
                     }
                     steps {
                         dir('tms_front') {
