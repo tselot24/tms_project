@@ -168,23 +168,23 @@ pipeline {
             }
         }
 
-        stage('Login to Docker Hub') {
-            // when {
-            //     anyOf {
-            //         expression { return env.BACKEND_CHANGED == 'true' }
-            //         expression { return env.FRONTEND_CHANGED == 'true' }
-            //     }
-            // }
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: "$DOCKER_CREDENTIALS_ID",
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-                    sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
-                }
-            }
-        }
+        // stage('Login to Docker Hub') {
+        //     // when {
+        //     //     anyOf {
+        //     //         expression { return env.BACKEND_CHANGED == 'true' }
+        //     //         expression { return env.FRONTEND_CHANGED == 'true' }
+        //     //     }
+        //     // }
+        //     steps {
+        //         withCredentials([usernamePassword(
+        //             credentialsId: "$DOCKER_CREDENTIALS_ID",
+        //             usernameVariable: 'DOCKER_USER',
+        //             passwordVariable: 'DOCKER_PASS'
+        //         )]) {
+        //             sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
+        //         }
+        //     }
+        // }
 
         // stage('Push Images') {
         //     parallel {
