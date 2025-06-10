@@ -32,9 +32,9 @@ pipeline {
                 withSonarQubeEnv() {
                   sh "${scannerHome}/bin/sonar-scanner"
                 }
-              }
            }
        }
+       
 
         stage('Build Images') {
             parallel {
