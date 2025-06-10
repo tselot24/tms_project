@@ -27,7 +27,7 @@ services:
       - db
     restart: always
     env_file:
-      - .env
+      - ./tms_backend/.env
     networks:
       - tms_net
     deploy:
