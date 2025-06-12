@@ -17,7 +17,7 @@ services:
         swarm.autoscaler: "true"
         swarm.autoscaler.minimum: "1"
         swarm.autoscaler.maximum: "5"
-#ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGfjrLHlTPESQjevtP+Wivh5uH+cpAgDZ7SJSGDUD1q/ gdop@gmaill.com
+
   backend:
     image: tms:backend
     command: gunicorn tms_backend.wsgi:application --bind 0.0.0.0:8000
