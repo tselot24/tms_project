@@ -120,7 +120,7 @@ pipeline {
                      // docker stack rm tms || true
                     //docker stack deploy -c docker-compose.yml tms
                     sh '''
-                    docker compose up -d 
+                    docker-compose up -d 
                     '''
                 }
             }
