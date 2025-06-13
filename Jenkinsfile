@@ -1,6 +1,6 @@
 //111a80069b10a3165438ffdef7645d85cd
 pipeline {
-    agent { label 'agent-56' }
+    agent none
 
     environment {
         DOCKER_REPO = 'tms'
@@ -103,6 +103,7 @@ pipeline {
         // }
 
         stage('Deploy') {
+            agent { label 'agent-56' }
             // when {
             //     anyOf {
             //         expression { return env.BACKEND_CHANGED == 'true' }
