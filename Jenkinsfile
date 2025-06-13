@@ -44,7 +44,7 @@ pipeline {
         stage('Build Images') {
             parallel {
                 stage('Build Backend') {
-                    agent { label 'master' }
+                    agent { label 'agent-56' }
                     // when {
                     //     expression { return env.BACKEND_CHANGED == 'true' }
                     // }
@@ -55,7 +55,7 @@ pipeline {
                     }
                 }
                 stage('Build Frontend') {
-                    agent { label 'master' }
+                    agent { label 'agent-56' }
                     // when {
                     //     expression { return env.FRONTEND_CHANGED == 'true' }
                     // }
