@@ -11,12 +11,14 @@ pipeline {
 
     stages {
         stage('Clone Monorepo') {
+            agent { label 'master' }
             steps {
                 git branch: 'main', credentialsId: 'tselot24_github', url: 'git@github.com:tselot24/tms_project.git'
             }
         }
 
         stage('Detect Changes') {
+            agent { label 'master' }
             steps {
                 script {
                     def changedFiles = sh(script: "git diff --name-only HEAD HEAD~1", returnStdout: true).trim().split("\n")
@@ -27,6 +29,7 @@ pipeline {
         }
         
         stage('SonarQube Analysis') {
+            agent { label 'master' }
             steps{
                 script{
                     def scannerHome = tool 'SonarScanner';
@@ -41,6 +44,7 @@ pipeline {
         stage('Build Images') {
             parallel {
                 stage('Build Backend') {
+                    agent { label 'master' }
                     // when {
                     //     expression { return env.BACKEND_CHANGED == 'true' }
                     // }
@@ -51,6 +55,7 @@ pipeline {
                     }
                 }
                 stage('Build Frontend') {
+                    agent { label 'master' }
                     // when {
                     //     expression { return env.FRONTEND_CHANGED == 'true' }
                     // }
