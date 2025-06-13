@@ -1,6 +1,6 @@
 //111a80069b10a3165438ffdef7645d85cd
 pipeline {
-    agent { label 'docker-agent' }
+    agent { label 'agent-56' }
 
     environment {
         DOCKER_REPO = 'tms'
