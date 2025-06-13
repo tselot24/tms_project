@@ -108,7 +108,7 @@ pipeline {
         // }
 
         stage('Deploy') {
-            agent { label 'agent-56' }
+            agent { label 'master' }
             // when {
             //     anyOf {
             //         expression { return env.BACKEND_CHANGED == 'true' }
