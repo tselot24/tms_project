@@ -114,7 +114,8 @@ pipeline {
                 script {
                     sh '''
                     // docker stack rm tms || true
-                    docker stack deploy -c docker-compose.yml tms
+                    //docker stack deploy -c docker-compose.yml tms
+                    docker compose up -d 
                     '''
                 }
             }
